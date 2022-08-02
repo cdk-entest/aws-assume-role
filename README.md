@@ -1,12 +1,9 @@
 ---
-title: Chakra UI Hackathon 22’ Recap
-description:
-  Last month we had the first-ever Chakra UI Hackathon, which we tagged the
-  Chakrathon 22'. The Hackathon was held from May 3rd to May 20th, 2022, with
-  participants from various parts of the world involved.
-author: estheragbaje
-publishedDate: 06/23/2022
-date: 2022-07-24
+title: Introduction to AWS Assume Role
+description: Simple assume role by an iam user to access s3 in another account
+author: haimtran
+publishedDate: 08/01/2022
+date: 2022-08-01
 ---
 
 For example, dev account wants to access S3 in prod account. [Github](https://github.com/entest-hai/aws-assume-role)
