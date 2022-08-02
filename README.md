@@ -44,7 +44,7 @@ role.attachInlinePolicy(
 take note the role arn and give it to the dev account
 
 ```tsx
-new CfnOutput(this, "AssumedRoleByGuesAccount", {
+new CfnOutput(this, "AssumeRoleArn", {
   value: role.roleArn,
 });
 ```
@@ -54,7 +54,8 @@ new CfnOutput(this, "AssumedRoleByGuesAccount", {
 From the dev account, assume the role as a AWSCLI Session
 
 ```shell
-aws sts assume-role --role-arn "arn:aws:iam:PROD_ACCOUNT_ID:role/AssumedRoleByGuesAccount" --role-session-name session
+aws sts assume-role --role-arn "arn:aws:iam:PROD_ACCOUNT_ID:role/AssumedRoleByGuesAccount" \
+  --role-session-name session
 ```
 
 Then take note temporary credentials
