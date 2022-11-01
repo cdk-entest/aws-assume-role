@@ -71,3 +71,49 @@ Test it
 ```shell
 aws s3 ls
 ```
+
+## Create a IAM Role Using CLI
+
+please export PRODUCT_ACCOUNT=1111-2222-3333-4444 we need to provide a trust policy to tell who or what service can assume the role
+
+```bash
+aws iam create-role \
+--role-name RoleForAccessS3 \
+--assume-role-policy-document \
+file://trust_policy.json
+```
+
+update an existing role trust policy (relationship)
+
+```bash
+aws iam update-assume-role-policy \
+--role-name RoleForAccessS3 \
+--policy-document \
+file://trust_policy.json
+```
+
+create a policy to allow accessing s3
+
+```bash
+aws iam create-policy \
+--policy-name AccessS3PolicyCrossAccount \
+--policy-document file://policy_access_s3.json
+```
+
+attach an policy to a role
+
+```bash
+aws iam attach-role-policy \
+--role-name RoleForAccessS3 \
+--policy-arn arn:aws:iam::$PRODUCT_ACCOUNT:policy/AccessS3PolicyCrossAccount
+```
+
+assume role from dev account
+
+```bash
+aws sts assume-role \
+--role-arn arn:aws:iam::$PRODUCT_ACCOUNT:role/RoleForAccessS3 \
+--role-session-name session
+```
+
+revoke to stop effectiveness of the role
