@@ -11,12 +11,22 @@ date: 2022-08-01
 [Github](https://github.com/entest-hai/aws-assume-role) explains basics of cross-account access by assuming role.
 
 - dev account access prod account (iam users)
+
+![iam_user_assume_role](https://user-images.githubusercontent.com/20411077/199384255-0e0d328a-c5a6-4d34-ad84-82940b3dfb9f.png)
+
 - a lambda function from dev account access s3 in prod account
+![lambda_assume_role](https://user-images.githubusercontent.com/20411077/199384393-7e62c379-552a-4ef1-9f70-475e89c29a09.png)
+
 
 in production account
 
 - create a role and specify which principal (dev account arn, lambda function arn) can assume this role
 - policy and speify what permission this role can do
+
+
+
+
+
 
 ## Trust Policy in Prod Account
 
